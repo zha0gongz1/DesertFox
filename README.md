@@ -24,12 +24,12 @@
 
 2.使用encryptUrl.go将shellcode文件所在的远端URL地址进行加密处理
 
-3.将主程序（main.go）中Ciphertext字段替换成加密的字符串
+3.将主程序（DesertFox.go）中Ciphertext字段替换成加密的字符串
 
 4.编译生成恶意文件
 
 ```
-go build main.go
+go build DesertFox.go
 ```
 
 ### 0x02.截图
@@ -43,4 +43,6 @@ MSF上线
 ![picture alt](https://raw.githubusercontent.com/An0ny-m0us/DesertFox/main/images/2.png)
 
 
+### 帮助
 
+详见[博客文章]()
