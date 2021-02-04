@@ -38,13 +38,13 @@ go build DesertFox.go
 
 免杀效果及CS上线
 
-![picture alt](https://raw.githubusercontent.com/An0ny-m0us/DesertFox/main/images/1.png)
+![avatar](https://raw.githubusercontent.com/An0ny-m0us/DesertFox/main/images/1.png)
 
 MSF上线
 
-![picture alt](https://raw.githubusercontent.com/An0ny-m0us/DesertFox/main/images/2.png)
+![avatar](https://raw.githubusercontent.com/An0ny-m0us/DesertFox/main/images/2.png)
 
 
 ### 0x03.帮助
 
-详见[博客文章]()
+详见[博客文章](https://www.cnblogs.com/H4ck3R-XiX/)
