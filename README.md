@@ -7,6 +7,10 @@ Implement load Cobalt Strike &amp; Metasploit shellcode with golang
 
 **仅限用于技术研究和获得正式授权的测试活动！**
 
+## 建议
+
+*建议大家实验中不要上传到virustotal、微步在线等网站上*
+
 ### 准备工作
 
 环境：Golang 
@@ -26,4 +30,16 @@ Implement load Cobalt Strike &amp; Metasploit shellcode with golang
 ``` go
 go build main.go
 ```
+
 ### 截图
+
+免杀效果及CS上线
+
+![picture alt](https://raw.githubusercontent.com/An0ny-m0us/DesertFox/main/images/1.png)
+
+MSF上线
+
+![picture alt](https://raw.githubusercontent.com/An0ny-m0us/DesertFox/main/images/2.png)
+
+
+
