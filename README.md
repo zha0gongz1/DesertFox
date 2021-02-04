@@ -2,7 +2,8 @@
 Implement load Cobalt Strike &amp; Metasploit shellcode with golang
 
 ## 声明
-<table><tr><td bgcolor=red>严禁用于非法网络入侵！！！</td></tr></table>
+<td bgcolor=red>123</td>
+<table><tr><td bgcolor=red>背景色是：red</td></tr></table>
 <table><tr><td bgcolor=red>仅限用于技术研究和获得正式授权的测试活动！</td></tr></table>
 
 ### 准备工作
