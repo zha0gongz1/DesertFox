@@ -1,5 +1,6 @@
 # DesertFox
-Implement load Cobalt Strike &amp; Metasploit shellcode with golang
+
+使用Golang实现免杀加载CobaltStrike和Metasploit的shellcode。
 
 ## 声明
 
@@ -11,13 +12,13 @@ Implement load Cobalt Strike &amp; Metasploit shellcode with golang
 
 *建议大家实验中不要上传到virustotal、微步在线等网站上*
 
-### 准备工作
+### 0x00.准备工作
 
 环境：Golang 
 
 工具：随意（推荐VisualStudio）
 
-### 用法
+### 0x01.用法
 
 1.利用MSF/CS生成shellcode（raw格式），上传至远程服务器
 
@@ -27,11 +28,11 @@ Implement load Cobalt Strike &amp; Metasploit shellcode with golang
 
 4.编译执行，生成恶意文件
 
-``` go
+```
 go build main.go
 ```
 
-### 截图
+### 0x02.截图
 
 免杀效果及CS上线
 
