@@ -1,6 +1,8 @@
 # 🦊 DesertFox
 
-使用Golang实现免杀加载CobaltStrike和Metasploit的shellcode
+使用Golang实现免杀加载CobaltStrike和Metasploit的shellcode，目前免杀火绒、卡巴斯基、腾讯安全管家、360全家桶等主机安全软件，但是Microsoft Defender会有风险提示。还有很多不足之处，后续会进行优化，尽请期待，谢谢。
+
+Take Golang to realize anti-virus loading of CobaltStrike and Metasploit's shellcode. Currently, it avoids anti-virus host security software such as HuoRong, Kaspersky, Tencent Security Manager, 360, but Microsoft Defender emerge risk warning. And there are some shortcomings, I will follow-up optimization, please look forward to it, thx.
 
 ## 声明
 
