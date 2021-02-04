@@ -1,6 +1,6 @@
 # DesertFox
 
-使用Golang实现免杀加载CobaltStrike和Metasploit的shellcode。
+使用Golang实现免杀加载CobaltStrike和Metasploit的shellcode
 
 ## 声明
 
@@ -26,7 +26,7 @@
 
 3.将主程序（main.go）中Ciphertext字段替换成加密的字符串
 
-4.编译执行，生成恶意文件
+4.编译，生成恶意文件
 
 ```
 go build main.go
