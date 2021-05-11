@@ -18,7 +18,7 @@ With Golang bypass anti-virus to implement loading of CobaltStrike and Metasploi
 
 环境：Golang 
 
-工具：随意（推荐VisualStudio）
+工具：随意（推荐Goland）
 
 ### 0x01.用法
 
