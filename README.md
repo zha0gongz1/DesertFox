@@ -47,7 +47,10 @@ MSF上线
 ![avatar](https://raw.githubusercontent.com/An0ny-m0us/DesertFox/main/images/2.png)
 
 ### 0x03.更新日志
-2021/5/11 DesertFox_v0.1  添加沙箱环境检测功能：检查当前机器注册表，决定是否运行
+
+**2021/5/11** [DesertFox_v0.1](https://github.com/An0ny-m0us/DesertFox)  
+
+添加沙箱环境检测功能：检查当前机器注册表，决定是否运行
 
 ### 0x04.帮助
 
