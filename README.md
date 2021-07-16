@@ -33,6 +33,8 @@ With Golang bypass anti-virus to implement loading of CobaltStrike and Metasploi
 ```
 go build DesertFox.go   #有命令行窗口，显示执行
 
+go build -ldflags "-s -w " -race DeserFox.go  #有命令行窗口，编译时去除符号表、调试信息等，采用数据竞争检测（指定编译过程实现简单免杀）
+
 go build -ldflags "-H windowsgui" DesertFox.go  #无命令行窗口，隐藏执行
 ```
 
