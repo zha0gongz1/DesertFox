@@ -12,7 +12,7 @@ With Golang bypass anti-virus to implement loading of CobaltStrike and Metasploi
 
 ## 建议
 
-*建议大家实验中不要上传到virustotal、微步在线等检测网站*
+*建议大家实验中不要上传到virustotal、微步在线等检测网站，并尽量在局域网内进行测试*
 
 ### 0x00.准备工作
 
@@ -53,6 +53,10 @@ MSF上线
 **2021/5/11** [DesertFox_v0.1](https://github.com/An0ny-m0us/DesertFox)  
 
 添加沙箱环境检测功能：检查当前机器注册表，决定是否运行
+
+**2021/9/24** [DesertFox_v0.2](https://github.com/An0ny-m0us/DesertFox)  
+
+添加隐藏窗口功能：代替 -H 编译参数，实现窗口隐藏效果，降低杀软对编译参数的查杀
 
 ### 0x04.帮助
 
