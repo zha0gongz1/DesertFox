@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 	"golang.org/x/sys/windows/registry"
-	"golang.org/x/w32"	//讲该项目https://github.com/gonutz/ide/tree/master/w32本地导入
+	"golang.org/x/w32"	//将该项目https://github.com/gonutz/ide/tree/master/w32本地导入
 	"io/ioutil"
 	"log"
 	"net/http"
