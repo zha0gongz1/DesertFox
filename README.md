@@ -22,13 +22,27 @@ With Golang bypass anti-virus to implement loading of CobaltStrike and Metasploi
 
 ### 0x01.用法
 
-1.利用MSF/CS生成shellcode（raw格式），上传至远程服务器
+1.在源文件（已进行注释标注）中设置key值
 
-2.使用encryptUrl.go将shellcode文件所在的远端URL地址进行加密处理
+2.利用MSF/CS生成shellcode（raw格式），使用encryptFile文件下进行加密处理
 
-3.将主程序（DesertFox.go）中Ciphertext字段替换成加密的字符串
+```
+go run encryptFile.go payload.bin   #将shellcode文件加密处理
+```
 
-4.编译生成恶意文件
+![avatar](https://raw.githubusercontent.com/zha0gongz1/DesertFox/main/images/demo.jpg)
+
+3.将处理后生成的文件托管到远端web服务器
+
+![avatar](https://raw.githubusercontent.com/zha0gongz1/DesertFox/main/images/demo1.jpg)
+
+4.使用encryptUrl.go将shellcode文件所在的远端URL地址进行加密处理，并填入源文件function.go中
+
+```
+go run encryptUrl.go   #将shellcode所在服务器地址加密处理
+```
+
+5.编译生成恶意文件
 
 ```
 go build DesertFox.go   #有命令行窗口，显示执行
@@ -57,6 +71,10 @@ MSF上线
 **2021/9/24** [DesertFox_v0.2](https://github.com/An0ny-m0us/DesertFox)  
 
 添加隐藏窗口功能：代替 -H 编译参数，实现窗口隐藏效果，降低杀软对编译参数的查杀
+
+**2022/5/7** [DesertFox_v1](https://github.com/An0ny-m0us/DesertFox)  
+
+添加对shellcode源文件加密：采用国密分组加密算法(SM4)处理shellcode文件
 
 ### 0x04.帮助
 
