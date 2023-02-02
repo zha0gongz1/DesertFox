@@ -24,7 +24,7 @@ With Golang bypass anti-virus to implement loading of CobaltStrike and Metasploi
 
 1.在源文件（已进行注释标注）中设置key值
 
-2.利用MSF/CS生成shellcode（raw格式），使用encryptFile文件下进行加密处理
+2.利用MSF/Sliver/CS生成shellcode（raw格式），使用encryptFile文件下进行加密处理
 
 ```
 go run encryptFile.go payload.bin   #将shellcode文件加密处理
